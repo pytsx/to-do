@@ -24,7 +24,7 @@ export default function LoginButton() {
   </div>
   return (
     <section className="flex flex-col gap-1">
-      <Button
+      {/* <Button
         disabled={loading}
         onClick={() => {
           setLoading(true);
@@ -36,7 +36,7 @@ export default function LoginButton() {
         <p className="text-sm font-medium text-stone-600 dark:text-stone-400 px-4">
           continue com GitHub
         </p>
-      </Button>
+      </Button> */}
 
       <Button
         disabled={loading}
