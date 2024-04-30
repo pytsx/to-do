@@ -17,7 +17,8 @@ const MessageListener = React.forwardRef(({ }, ref) => {
       window.removeEventListener('message', handleMessage);
     };
   }, [])
-  return <>{message}</>
+
+  return null
 })
 
 MessageListener.displayName = "MessageListener"
