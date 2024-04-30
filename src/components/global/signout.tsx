@@ -2,8 +2,9 @@
 import { LucideDoorOpen } from "lucide-react";
 import { Button } from "../ui";
 import { signOut } from "next-auth/react"
+import React from "react";
 
-function Signout() {
+const Signout = React.forwardRef(() => {
   return (
     <Button
       variant="ghost"
@@ -16,7 +17,7 @@ function Signout() {
       <LucideDoorOpen className="w-5 h-5" />
     </Button>
   )
-}
+})
 
 Signout.displayName = "Signout"
 export { Signout }

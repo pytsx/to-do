@@ -6,8 +6,9 @@ import { useGlobal } from "@/provider/global"
 import { SidebarClose, Trash } from "lucide-react"
 import { SidebarContainer } from "../sidebar.container"
 import { TaskItem } from "./list"
+import React from "react"
 
-const TaskSidebar = () => {
+const TaskSidebar = React.forwardRef(() => {
   const { globalState, globalDispatch } = useGlobal()
 
   function closeTaskSidebar() {
@@ -84,7 +85,7 @@ const TaskSidebar = () => {
       </Appbar>
     </SidebarContainer>
   )
-}
+})
 
 
 TaskSidebar.displayName = "TaskSidebar"

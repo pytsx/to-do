@@ -1,0 +1,7 @@
+src
+.gitignore
+tsconfig.json
+tsup.config.ts
+next.config.mjs
+node_modules
+.next

@@ -1,3 +1,4 @@
+import React from "react"
 import { Appbar } from "@/components/ui/appbar"
 import { Toolbar } from "@/components/ui/toolbar"
 import { Perfil } from "../perfil"
@@ -9,7 +10,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Signout } from "../signout"
 
 
-const ListSidebar = () => {
+const ListSidebar = React.forwardRef(({ }, ref) => {
   return <SidebarContainer type="list">
     <Appbar
       orientation={"vertical"}
@@ -36,7 +37,7 @@ const ListSidebar = () => {
         </Toolbar>
 
 
-      </ScrollArea>
+      </ScrollArea> 
 
       <Stack items="center" className="p-2 sticky bottom-0 h-12 bg-inherit border-t w-full">
         <Signout />
@@ -44,7 +45,7 @@ const ListSidebar = () => {
 
     </Appbar>
   </SidebarContainer>
-}
+})
 
 ListSidebar.displayName = "ListSidebar"
 export {

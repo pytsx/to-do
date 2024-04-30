@@ -20,7 +20,7 @@ const PerfilAvatar = React.memo(({ image, name }: { image: string, name: string 
   )
 })
 PerfilAvatar.displayName = "PerfilAvatar"
-const Perfil = async () => {
+const Perfil = React.forwardRef(async () => {
   const user = await getServerSession()
   if (!user) return null
 
@@ -64,7 +64,7 @@ const Perfil = async () => {
       </Dialog>
     </section>
   )
-}
+})
 
-Perfil.DisplayName = "Perfil"
+Perfil.displayName = "Perfil"
 export { Perfil }

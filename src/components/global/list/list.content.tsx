@@ -32,7 +32,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(({ className, a
   </div>
 }
 )
-function ListContent({ author }: ListProps) {
+const ListContent = React.forwardRef(({ author }: ListProps, ref) => {
   const { globalState, globalDispatch } = useGlobal()
   function selectList(listId: string) {
     globalDispatch({
@@ -44,7 +44,7 @@ function ListContent({ author }: ListProps) {
     })
   }
   return (
-    <section className=" w-full flex flex-col gap-1">
+    <section className=" w-full flex flex-col gap-1" >
       {
         globalState.lists.filter(el => el.metadata.author === author).map(list => (
           <ListItem
@@ -79,7 +79,7 @@ function ListContent({ author }: ListProps) {
       }
     </section>
   )
-}
+})
 ListItem.displayName = "ListItem"
 ListContent.displayName = "ListContent"
 export {

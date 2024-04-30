@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components";
-import { Github } from "@/const";
 import { Loader } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";

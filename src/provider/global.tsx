@@ -91,14 +91,11 @@ const Context = React.createContext<ContextProps>({
 })
 
 
-
-export const GlobalProvider = ({ children }: Children) => {
+interface GlobalProviderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
+const GlobalProvider = React.forwardRef<HTMLDivElement, GlobalProviderProps>(({ children }, ref) => {
   const [globalState, globalDispatch] = React.useReducer(globalReducer, globalInitialState)
-
-
   return (
     <SessionProvider>
-
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
@@ -112,11 +109,17 @@ export const GlobalProvider = ({ children }: Children) => {
       </ThemeProvider>
     </SessionProvider>
   )
-}
+})
 
+GlobalProvider.displayName = "GlobalProvider"
 
-export const useGlobal = () => {
+const useGlobal = () => {
   const context = React.useContext(Context)
   if (!context) throw new Error("useGlobal must be inside GlobalProvider")
   return context
+}
+
+export {
+  useGlobal,
+  GlobalProvider
 }

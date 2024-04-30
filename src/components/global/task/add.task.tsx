@@ -5,7 +5,7 @@ import { Task } from "@/reducer"
 import React from "react"
 import { v4 } from "uuid"
 
-const AddTask = () => {
+const AddTask = React.forwardRef(({ }, ref) => {
   const { globalState, globalDispatch } = useGlobal()
 
 
@@ -47,7 +47,7 @@ const AddTask = () => {
 
   return <Input
     callback={submit} color={list.metadata.color ?? ""} name="tarefa" />
-}
+})
 
 
 export {

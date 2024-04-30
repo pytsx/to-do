@@ -243,7 +243,7 @@ const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(({
 
 TaskItem.displayName = "TaskItem"
 
-const TaskList = () => {
+const TaskList = React.forwardRef(({ }, ref) => {
   const { globalState, globalDispatch } = useGlobal()
 
   function selectTask(taskId: string) {
@@ -301,7 +301,7 @@ const TaskList = () => {
     <section className="relative flex flex-col max-h-screen h-screen overflow-hidden gap-4">
       {
         globalState.selectedList &&
-        <header className="pt-5 px-4 flex gap-2 w-full">
+        <section className="pt-5 px-4 flex gap-2 w-full">
           <span className="w-10 flex items-center justify-center">
             <Button variant={"outline"} size="icon" onClick={closeListSidebar}>
               <Menu className="w-4 h-4" />
@@ -330,7 +330,7 @@ const TaskList = () => {
             />
           </Stack>
 
-        </header>
+          </section>
 
       }
       <ScrollArea className="relative flex flex-col max-h-screen px-4">
@@ -386,7 +386,7 @@ const TaskList = () => {
       </ScrollArea>
     </section>
   )
-}
+})
 
 
 TaskList.displayName = "TaskList"
