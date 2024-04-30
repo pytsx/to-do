@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "next dev",
-    "build": "tsup",
+    "build": "next build",
     "push": " npm publish --access=public",
     "start": "next start",
     "lint": "next lint"

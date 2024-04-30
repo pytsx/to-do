@@ -22,5 +22,5 @@ const TodoApp = React.forwardRef(({ }, ref) => {
     </GlobalProvider>
   )
 })
-
+TodoApp.displayName = "TodoApp"
 export { TodoApp }

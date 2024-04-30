@@ -9,7 +9,7 @@ export type ListProps = {
 const List = React.forwardRef((props: ListProps, ref) => {
   return <ListContent {...props} />
 })
-
+List.displayName = "List"
 export {
   List
 }

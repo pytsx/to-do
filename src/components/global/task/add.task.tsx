@@ -49,7 +49,7 @@ const AddTask = React.forwardRef(({ }, ref) => {
     callback={submit} color={list.metadata.color ?? ""} name="tarefa" />
 })
 
-
+AddTask.displayName = "AddTask"
 export {
   AddTask
 }
