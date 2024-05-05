@@ -7,6 +7,7 @@ import { SidebarClose, Trash } from "lucide-react"
 import { SidebarContainer } from "../sidebar.container"
 import { TaskItem } from "./list"
 import React from "react"
+import { ScrollArea } from "@radix-ui/react-scroll-area"
 
 const TaskSidebar = React.forwardRef(() => {
   const { globalState, globalDispatch } = useGlobal()
@@ -50,9 +51,14 @@ const TaskSidebar = React.forwardRef(() => {
     <SidebarContainer type="task">
       <Appbar
         orientation={"vertical"}
-        className="relative !w-[280px] min-w-[280px] max-w-[280px] justify-center overflow-hidden "
+        className=" !w-[280px] min-w-[280px] max-w-[280px] justify-center overflow-hidden"
+        style={{
+          maxHeight: "calc(100vh - 3rem)",
+          height: "calc(100vh - 3rem)",
+        }}
       >
-        <Toolbar className="gap-4 py w-full h-full flex !flex-col justify-between items-start">
+
+        <Toolbar className="shadow bg-neutral-900  gap-4 h-fit w-full !flex-col ">
           <section className="w-full h-full">
             <div className="pt-3">
               <TaskItem task={task} editable />
@@ -61,7 +67,8 @@ const TaskSidebar = React.forwardRef(() => {
 
         </Toolbar>
 
-        <div className="flex items-center justify-between w-full border-t p-2">
+
+        <div className="fixed bottom-0 z-50 flex items-center bg-neutral-900 justify-between w-full border-t p-2">
 
           <Button
             variant="ghost"

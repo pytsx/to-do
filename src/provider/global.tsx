@@ -14,7 +14,7 @@ interface ContextProps {
 const globalInitialState: GlobalState = {
   lists: [
     {
-      id: v4(),
+      id: "1",
       name: "meu dia",
       tasks: [],
       metadata: {
@@ -82,7 +82,8 @@ const globalInitialState: GlobalState = {
   openSidebars: {
     task: false,
     list: true,
-  }
+  },
+  selectedList: "1",
 }
 
 const Context = React.createContext<ContextProps>({

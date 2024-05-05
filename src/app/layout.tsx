@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GlobalProvider } from "@/provider/global";
+import { Layout, LayoutProviders } from "@/components";
+import { Appbar } from "@/components/ui/appbar";
+import { Pytsx } from "@/components/global/logo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GlobalProvider>
-          {children}
-        </GlobalProvider>
+        <LayoutProviders >
+          <Layout appbar={<Pytsx />}>
+            <GlobalProvider>
+              {children}
+            </GlobalProvider>
+          </Layout>
+        </LayoutProviders>
       </body>
     </html>
   );

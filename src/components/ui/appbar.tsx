@@ -20,8 +20,8 @@ const appbarVariant = cva(
         xl: "px-6 py-4"
       },
       orientation: {
-        vertical: "!h-screen !w-fit !items-start !justify-start flex-col",
-        horizontal: "!w-screen !h-fit"
+        vertical: "!h-full !w-fit !items-start !justify-start flex-col",
+        horizontal: "!w-full !h-fit"
       },
       defaultVariants: {
         variant: "default",

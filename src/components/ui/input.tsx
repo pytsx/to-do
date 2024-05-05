@@ -7,7 +7,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   callback: (value: string) => void
   variant?: "default" | "ghost"
 }
-const Input = React.forwardRef<HTMLInputElement, InputProps>(({ color, callback, variant, ...props }, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ color, callback, variant, disabled, hidden, ...props }, ref) => {
   const [value, setValue] = React.useState<string>("")
   const [active, setActive] = React.useState<boolean>(false)
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -21,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ color, callback,
     callback(value)
     setValue("")
   }
-  return <div
+  return !hidden && <div
     className={clsx(
       "w-full h-full flex  bg-neutral-900 rounded-sm cursor-text hover:bg-neutral-800 active:bg-neutral-800",
       variant == "ghost" && "bg-transparent"
@@ -48,6 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ color, callback,
         onKeyDown={handleEnterPress}
         type="text"
         value={value}
+        disabled={disabled}
         style={{ color: color }}
         onClick={() => setActive(true)}
         onBlur={() => setActive(false)}

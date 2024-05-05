@@ -184,7 +184,9 @@ const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(({
           [!dense && active && "!bg-neutral-800 group-hover/taskItem:bg-neutral-900 "],
           [!dense && "px-2 py-4 !bg-neutral-800 group-hover/taskItem:bg-transparent cursor-default"]
         )}
-      >
+      > 
+
+
         <Checker onClick={toogleTaskstatus} active={task.status == "DONE"}>
           <Stack direction={"col"} justify={"center"} className={clsx(" h-full w-full")}>
             <EditableText
@@ -211,15 +213,15 @@ const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(({
           !dense
           && <section className="w-full flex flex-col gap-1">
             {
-              task.steps.map(step => (
-                <Checker key={v4()} className="-ml-1 px-2 items-center border-b border-neutral-600 py-1 w-full " active={step.status == "DONE"} onClick={(e) => {
+                task.steps.slice(0, 10).map(step => (
+                  <Checker key={v4()} className="-ml-1 px-2 items-center hover:bg-neutral-900 rounded-md text-neutral-300 py-1 w-full " active={step.status == "DONE"} onClick={(e) => {
                   e.stopPropagation()
                   toogleStepstatus(step)
                 }}>
                   <EditableText
                     value={step.name}
                     callback={(name) => renameStep(name, step)}
-                    className="h-full w-full max-w-[80%] line-clamp-1 "
+                      className="h-full w-full max-w-[80%] line-clamp-1 text-sm"
                   />
                   <Button variant={"ghost"} className="rounded-full px-2" size={"icon"} onClick={() => deleteStep(step.id)}>
                     <X className="w-5 h-5" />
@@ -228,9 +230,11 @@ const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(({
               ))
             }
             <Input
-              name="etapa"
-              variant="ghost"
-              callback={addStep}
+                disabled={task.steps.length >= 10}
+                hidden={task.steps.length >= 10}
+                name="etapa"
+                variant="ghost"
+                callback={addStep}
             />
           </section>
 
@@ -298,7 +302,13 @@ const TaskList = React.forwardRef(({ }, ref) => {
   }
 
   return (
-    <section className="relative flex flex-col max-h-screen h-screen overflow-hidden gap-4">
+    <section className="relative flex flex-col overflow-hidden gap-4"
+      style={{
+        maxHeight: "calc(100vh - 3rem)",
+        height: "calc(100vh - 3rem)",
+      }}
+    >
+
       {
         globalState.selectedList &&
         <section className="pt-5 px-4 flex gap-2 w-full">
@@ -306,8 +316,7 @@ const TaskList = React.forwardRef(({ }, ref) => {
             <Button variant={"outline"} size="icon" onClick={closeListSidebar}>
               <Menu className="w-4 h-4" />
             </Button>
-          </span>
-
+            </span>
           <Stack
             items={"center"}
             key={list.id}

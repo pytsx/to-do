@@ -14,7 +14,6 @@ const TodoApp = React.forwardRef(({ }, ref) => {
       >
         <MessageListener />
         <ListSidebar />
-
         <section className="w-full h-full flex flex-col ">
           <div className={clsx("bg-neutral-950 w-full h-full select-none ")}>
             <TaskList />

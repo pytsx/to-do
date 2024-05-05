@@ -15,8 +15,18 @@ const ListSidebar = React.forwardRef(({ }, ref) => {
     <Appbar
       orientation={"vertical"}
       className="relative !w-[280px] min-w-[280px] max-w-[280px] overflow-hidden"
+      style={{
+        maxHeight: "calc(100vh - 3rem)",
+        height: "calc(100vh - 3rem)",
+      }}
     >
-      <ScrollArea className="relative max-h-[100vh] w-full h-full">
+      <ScrollArea
+        className="relative  w-full h-full"
+        style={{
+          maxHeight: "calc(100vh - 6rem)",
+          height: "calc(100vh - 6rem)",
+        }}
+      >
 
         <Toolbar className="sticky top-0 z-20 shadow bg-neutral-900  gap-4 h-fit w-full !flex-col !items-start !justify-start">
           <Perfil />

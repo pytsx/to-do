@@ -43,10 +43,10 @@ export default function LoginButton() {
           setLoading(true);
           signIn("credentials");
         }}
-        variant={"link"}
+        variant={"default"}
       >
-        <p className="text-sm font-medium text-stone-600 dark:text-stone-400 px-4">
-          sessão guest
+        <p >
+          sessão anônima
         </p>
       </Button>
     </section>

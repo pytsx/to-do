@@ -43,7 +43,7 @@ const Perfil = React.forwardRef(async () => {
             </Stack>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent className="w-60">
+          {/* <DropdownMenuContent className="w-60">
 
             <DialogTrigger className="w-full">
               <DropdownMenuItem className="w-full gap-2  cursor-pointer">
@@ -54,7 +54,7 @@ const Perfil = React.forwardRef(async () => {
             <DropdownMenuItem className="gap-2  cursor-pointer">
               <RefreshCcw className="w-4 h-4 opacity-50 " /> sincronizar
             </DropdownMenuItem>
-          </DropdownMenuContent>
+          </DropdownMenuContent> */}
         </DropdownMenu >
 
 
